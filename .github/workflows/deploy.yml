@@ -25,7 +25,9 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      # npm install (not ci): lock files generated on Windows can omit
+      # platform-specific optional deps (sharp/@emnapi) that Linux requires
+      - run: npm install --no-audit --no-fund
 
       - run: npm run build
 
