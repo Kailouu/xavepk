@@ -51,6 +51,9 @@ import img1 from '../assets/xav-hero-stage.jpg'
 import img2 from '../assets/xav-mic-closeup.jpg'
 import img3 from '../assets/xav-flower-cardigan.jpg'
 import img4 from '../assets/xav-purple-stage.jpg'
+import img5 from '../assets/xav-arms-up.jpg'
+import img6 from '../assets/xav-shipping-forecast.jpg'
+import img7 from '../assets/xav-dfyne-mcr.jpg'
 
 interface GalleryImage { url: string; alt: string; span: 1 | 2 }
 
@@ -58,6 +61,9 @@ const images: GalleryImage[] = [
   { url: img1, alt: 'XAV live on stage at Primal Live', span: 2 },
   { url: img2, alt: 'XAV performing close-up with mic', span: 1 },
   { url: img3, alt: 'XAV performing in flower cardigan', span: 1 },
+  { url: img5, alt: 'XAV performing with arms raised', span: 2 },
+  { url: img6, alt: 'XAV live at The Shipping Forecast', span: 1 },
+  { url: img7, alt: 'XAV at DFYNE MCR', span: 1 },
   { url: img4, alt: 'XAV on stage in purple light', span: 2 },
 ]
 
