@@ -68,3 +68,18 @@ input[type="range"]:hover::-webkit-slider-thumb { transform: scale(1.4); }
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Scroll reveal (v-reveal directive) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

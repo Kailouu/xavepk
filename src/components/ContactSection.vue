@@ -5,6 +5,13 @@
       <h2 class="section-title">Get in Touch</h2>
       <p class="contact-intro">For bookings, press inquiries, and collaborations —</p>
 
+      <a href="./xav-press-kit.pdf" download="XAV-Press-Kit.pdf" class="presskit-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download Press Kit
+      </a>
+
       <div class="contact-grid">
         <a v-for="link in links" :key="link.label" :href="link.href" class="contact-card" target="_blank" rel="noopener">
           <span class="contact-icon" v-html="link.icon"></span>
@@ -103,7 +110,28 @@ const socials = [
   color: #fff;
   margin-bottom: 12px;
 }
-.contact-intro { color: var(--muted); font-size: 15px; margin-bottom: 40px; }
+.contact-intro { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+
+.presskit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: 26px;
+  background: var(--gradient);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 44px;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(255,60,172,0.25);
+}
+.presskit-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(255,60,172,0.4);
+}
 
 .contact-grid {
   display: grid;

@@ -40,8 +40,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import defaultBg from '../assets/xav-hero-stage.jpg'
-import defaultAvatar from '../assets/xav-mic-closeup.jpg'
+import defaultBg from '../assets/xav-arms-up.webp'
+import defaultAvatar from '../assets/xav-mic-closeup.webp'
 
 const bgUrl = ref(defaultBg)
 const avatarUrl = ref(defaultAvatar)

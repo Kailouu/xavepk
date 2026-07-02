@@ -47,13 +47,15 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-import img1 from '../assets/xav-hero-stage.jpg'
-import img2 from '../assets/xav-mic-closeup.jpg'
-import img3 from '../assets/xav-flower-cardigan.jpg'
-import img4 from '../assets/xav-purple-stage.jpg'
-import img5 from '../assets/xav-arms-up.jpg'
-import img6 from '../assets/xav-shipping-forecast.jpg'
-import img7 from '../assets/xav-dfyne-mcr.jpg'
+import img1 from '../assets/xav-hero-stage.webp'
+import img2 from '../assets/xav-mic-closeup.webp'
+import img3 from '../assets/xav-flower-cardigan.webp'
+import img4 from '../assets/xav-purple-stage.webp'
+import img5 from '../assets/xav-arms-up.webp'
+import img6 from '../assets/xav-shipping-forecast.webp'
+import img7 from '../assets/xav-dfyne-mcr.webp'
+import img8 from '../assets/xav-dfyne-pose.webp'
+import img9 from '../assets/xav-street-portrait.webp'
 
 interface GalleryImage { url: string; alt: string; span: 1 | 2 }
 
@@ -64,6 +66,8 @@ const images: GalleryImage[] = [
   { url: img5, alt: 'XAV performing with arms raised', span: 2 },
   { url: img6, alt: 'XAV live at The Shipping Forecast', span: 1 },
   { url: img7, alt: 'XAV at DFYNE MCR', span: 1 },
+  { url: img9, alt: 'XAV street portrait', span: 1 },
+  { url: img8, alt: 'XAV posing at DFYNE MCR event', span: 1 },
   { url: img4, alt: 'XAV on stage in purple light', span: 2 },
 ]
 
