@@ -11,16 +11,6 @@
     </div>
 
     <div class="hero-content">
-      <div class="artist-avatar" @click="triggerAvatarUpload">
-        <img :src="avatarUrl" alt="XAV" />
-        <div class="avatar-overlay">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
-          </svg>
-        </div>
-        <input ref="avatarInput" type="file" accept="image/*" @change="onAvatarChange" hidden />
-      </div>
-
       <div class="hero-text">
         <h1 class="artist-name">XAV</h1>
         <p class="artist-genre">Singer · Songwriter · Creative</p>
@@ -41,24 +31,14 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import defaultBg from '../assets/xav-arms-up.webp'
-import defaultAvatar from '../assets/xav-mic-closeup.webp'
 
 const bgUrl = ref(defaultBg)
-const avatarUrl = ref(defaultAvatar)
-const avatarInput = ref<HTMLInputElement>()
 
 const bgStyle = computed(() => ({ backgroundImage: `url(${bgUrl.value})` }))
 
 function onBgChange(e: Event) {
   const file = (e.target as HTMLInputElement).files?.[0]
   if (file) bgUrl.value = URL.createObjectURL(file)
-}
-
-function triggerAvatarUpload() { avatarInput.value?.click() }
-
-function onAvatarChange(e: Event) {
-  const file = (e.target as HTMLInputElement).files?.[0]
-  if (file) avatarUrl.value = URL.createObjectURL(file)
 }
 </script>
 
@@ -70,7 +50,7 @@ function onAvatarChange(e: Event) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
@@ -87,8 +67,9 @@ function onAvatarChange(e: Event) {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(9,6,8,0.1) 0%,
-    rgba(9,6,8,0.45) 50%,
+    rgba(9,6,8,0.55) 0%,
+    rgba(9,6,8,0.15) 30%,
+    rgba(9,6,8,0.35) 65%,
     rgba(9,6,8,0.92) 100%
   );
 }
@@ -120,60 +101,23 @@ function onAvatarChange(e: Event) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
   text-align: center;
-  padding: 0 24px;
+  padding: clamp(28px, 6vh, 56px) 24px 0;
 }
 
-.artist-avatar {
-  position: relative;
-  width: 112px;
-  height: 112px;
-  border-radius: 50%;
-  cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  /* gradient ring */
-  padding: 2px;
-  background: var(--gradient);
-  box-shadow: 0 0 0 3px rgba(255,107,53,0.12), 0 0 32px rgba(255,60,172,0.2), 0 8px 32px rgba(0,0,0,0.4);
-}
-.artist-avatar:hover { transform: scale(1.04); box-shadow: 0 0 0 3px rgba(255,107,53,0.25), 0 0 40px rgba(255,60,172,0.35), 0 8px 32px rgba(0,0,0,0.4); }
-
-.artist-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 50%;
-  display: block;
-}
-.avatar-overlay {
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-.artist-avatar:hover .avatar-overlay { opacity: 1; }
-
-.hero-text { display: flex; flex-direction: column; gap: 12px; }
+.hero-text { display: flex; flex-direction: column; gap: 10px; }
 
 .artist-name {
-  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-size: clamp(3rem, 9vw, 6rem);
   font-weight: 300;
   letter-spacing: 0.18em;
   line-height: 1;
-  /* gradient text */
   background: linear-gradient(135deg, #ff9f6b 0%, #ff6b35 40%, #ff3cac 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 30px rgba(255,60,172,0.3));
+  filter: drop-shadow(0 0 30px rgba(255,60,172,0.35)) drop-shadow(0 2px 12px rgba(0,0,0,0.6));
 }
 
 .artist-genre {
@@ -185,21 +129,23 @@ function onAvatarChange(e: Event) {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   font-weight: 400;
+  filter: drop-shadow(0 1px 6px rgba(0,0,0,0.7));
 }
 
 .hero-nav {
   display: flex;
   gap: 32px;
-  margin-top: 10px;
+  margin-top: 4px;
 }
 .hero-nav a {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.65);
   transition: color 0.2s ease;
   position: relative;
   padding-bottom: 4px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
 }
 .hero-nav a::after {
   content: '';

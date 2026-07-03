@@ -48,7 +48,6 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 import img1 from '../assets/xav-hero-stage.webp'
-import img2 from '../assets/xav-mic-closeup.webp'
 import img3 from '../assets/xav-flower-cardigan.webp'
 import img4 from '../assets/xav-purple-stage.webp'
 import img5 from '../assets/xav-arms-up.webp'
@@ -61,8 +60,7 @@ interface GalleryImage { url: string; alt: string; span: 1 | 2 }
 
 const images: GalleryImage[] = [
   { url: img1, alt: 'XAV live on stage at Primal Live', span: 2 },
-  { url: img2, alt: 'XAV performing close-up with mic', span: 1 },
-  { url: img3, alt: 'XAV performing in flower cardigan', span: 1 },
+  { url: img3, alt: 'XAV performing in flower cardigan', span: 2 },
   { url: img5, alt: 'XAV performing with arms raised', span: 2 },
   { url: img6, alt: 'XAV live at The Shipping Forecast', span: 1 },
   { url: img7, alt: 'XAV at DFYNE MCR', span: 1 },
