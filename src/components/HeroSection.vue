@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg" :style="{ backgroundImage: `url(${bg})` }"></div>
 
     <div class="hero-content">
       <div class="hero-text">
@@ -39,7 +39,6 @@ import bg from '../assets/xav-street-portrait.webp'
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: v-bind('`url(${bg})`');
   background-size: cover;
   /* vertical % crops the top of the portrait so the head sits under the title —
      raise the value to push the image further up, lower it to bring the top back */
