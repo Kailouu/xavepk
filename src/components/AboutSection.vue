@@ -2,7 +2,7 @@
   <section id="about" class="about section">
     <div class="container">
       <span class="section-label">About</span>
-      <h2 class="section-title">The Artist</h2>
+      <h2 class="section-title">XAV</h2>
       <div class="about-grid">
         <div class="about-bio">
           <p class="bio-text">

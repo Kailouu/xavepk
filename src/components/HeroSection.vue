@@ -1,14 +1,6 @@
 <template>
   <section class="hero">
-    <div class="hero-bg" :style="bgStyle">
-      <label class="change-bg-btn" title="Change background">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
-        </svg>
-        Change photo
-        <input type="file" accept="image/*" @change="onBgChange" hidden />
-      </label>
-    </div>
+    <div class="hero-bg"></div>
 
     <div class="hero-content">
       <div class="hero-text">
@@ -29,17 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import defaultBg from '../assets/xav-arms-up.webp'
-
-const bgUrl = ref(defaultBg)
-
-const bgStyle = computed(() => ({ backgroundImage: `url(${bgUrl.value})` }))
-
-function onBgChange(e: Event) {
-  const file = (e.target as HTMLInputElement).files?.[0]
-  if (file) bgUrl.value = URL.createObjectURL(file)
-}
+import bg from '../assets/xav-street-portrait.webp'
 </script>
 
 <style scoped>
@@ -57,8 +39,11 @@ function onBgChange(e: Event) {
 .hero-bg {
   position: absolute;
   inset: 0;
+  background-image: v-bind('`url(${bg})`');
   background-size: cover;
-  background-position: center top;
+  /* vertical % crops the top of the portrait so the head sits under the title —
+     raise the value to push the image further up, lower it to bring the top back */
+  background-position: center 17%;
   background-repeat: no-repeat;
 }
 .hero-bg::after {
@@ -73,27 +58,6 @@ function onBgChange(e: Event) {
     rgba(9,6,8,0.92) 100%
   );
 }
-
-.change-bg-btn {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 20px;
-  font-size: 11px;
-  color: rgba(255,255,255,0.6);
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-  letter-spacing: 0.05em;
-}
-.change-bg-btn:hover { background: rgba(0,0,0,0.7); color: #fff; border-color: rgba(255,255,255,0.25); }
 
 .hero-content {
   position: relative;
